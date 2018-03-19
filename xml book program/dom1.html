@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>example</title>
+</head>
+<script language="javascript">
+var xmldoc=new ActiveXObject("Microsoft.XMLDOM");
+xmldoc.load("book.xml");
+var elm=xmldoc.documentElement;
+var flag=0;
+document.write("<table border=2><tr><th>Title</th><th>Author Name</th>"); 
+document.writeln("<th>ISBN number</th> <th>Publisher name</th><th>Edition</th><th>Price</th></tr><tr>");
+for(var i=0;i<elm.childNodes.length;i++)
+{
+	var curNode=elm.childNodes.item(i);
+	for(var j=0;j<curNode.childNodes.length;j++)
+	{
+		document.writeln("<td>" +curNode.childNodes.item(j).text +"</td>");
+		flag=1;
+	}
+	document.write("</tr>");
+}
+document.write("</table>");
+if(flag==0)
+	document.writeln("<br>\nblank found");
+</script>
+</html>

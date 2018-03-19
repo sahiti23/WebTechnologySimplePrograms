@@ -1,0 +1,190 @@
+<html>
+<head>
+<title>registration validation</title>
+<script type="text/javascript">
+function validate()
+{
+	var namere=new RegExp("^[A-Z a-z]*$");
+	var phreg=new RegExp("^\\d{10}$");
+	var mailreg=new RegExp("^\\w+\.?\\w+@\\w+\.[a-z]{2,3}$");
+	var i,sexchk=false,dobchk=false,lanchk=false;
+
+	if(document.myfrm.name.value=="")
+	{
+		alert("name field cannot be empty");
+		document.myfrm.name.focus();
+		return false;
+	}
+
+	else if(!namere.test(document.myfrm.name.value))
+	{
+		alert("not a valid name");
+		document.myfrm.name.focus();
+		return false;
+	}
+	if(document.myfrm.pwd.value=="")
+	{
+		alert("password field cannot be empty");
+		document.myfrm.pwd.focus();
+		return false;
+	}
+	else if((document.myfrm.pwd.value).length<6)
+	{
+		alert("password length must be atleast 6 characters");
+		document.myfrm.pwd.focus();
+		return false;
+	}	
+	if(!mailreg.test(document.myfrm.email.value))
+	{
+		alert("not a valid email");
+		document.myfrm.name.focus();
+		return false;
+	}
+	if(!phreg.test(document.myfrm.ph.value))
+	{
+		alert("not a valid phone number");
+		document.myfrm.ph.focus();
+		return false;
+	}
+	for(i=0;i<document.myfrm.sex.length;i++)
+	if(document.myfrm.sex[i].checked)
+	sexchk=true;
+	if(!sexchk)
+	{
+		alert("please choose sex");
+		return false;
+	}
+	
+	for(i=0;i<document.myfrm.lang.length;i++)
+	if(document.myfrm.lang[i].checked)
+	lanchk=true;
+	if(!lanchk)
+	{
+		alert("please choose language");
+		return false;
+	}
+	var dchk=document.myfrm.day.selectedIndex;
+	if(document.myfrm.day.options[dchk].value=="none")
+	{
+		alert("please choose day");
+		return false;
+	}
+	var mchk=document.myfrm.month.selectedIndex;
+	if(document.myfrm.month.options[mchk].value=="none")
+	{
+		alert("please choose month");
+		return false;
+	}
+	var ychk=document.myfrm.year.selectedIndex;
+	if(document.myfrm.year.options[ychk].value=="none")
+	{
+		alert("please choose year");
+		return false;
+	}
+	if(document.myfrm.address.value=="")
+	{
+		alert("specify the address");
+		document.myfrm.address.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+</head>
+<body>
+<form name="myfrm" onsubmit="return validate()">
+
+<p>name:<input type="text" name="name" size="30" maxlength="20"></p>
+
+<p>password:<br><input type="password" name="pwd" size="30" maxlength="15"></p>
+
+<p>E-mail id<br><input type="text" name="email" size="40" maxlength="30"></p>
+
+<p>phone number<br><input type="text" name="ph" size="10" maxlength="10"></p>
+
+<p>sex<br><input type="radio" name="sex" value="male">male
+      <input type="radio" name="sex" value="female">female </p>
+
+<p>date-of-birth <br>
+<select name="day" size=1>
+<option value="none"></option> 
+<option value="1">1</option> 	
+<option value="2">2</option> 
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+
+<select name="month" size=1>
+<option value="none"></option>
+<option value="jan">jan</option> 	
+<option value="feb">feb</option> 
+<option value="mar">mar</option>
+<option value="apr">apr</option>
+<option value="may">may</option>
+<option value="jun">jun</option>
+<option value="jul">jul</option>
+<option value="aug">aug</option>
+<option value="sep">sep</option>
+<option value="oct">oct</option>
+<option value="nov">nov</option>
+<option value="dec">dec</option>
+</select>
+
+<select name="year" size=1>
+<option value="none"></option>
+<option value="1990">1990</option> 	
+<option value="1991">1991</option> 
+<option value="1992">1992</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+<option value="1999">1999</option>
+<option value="2000">2000</option>
+<option value="2001">2001</option>
+</select>
+
+<p>languagues<br><input type="checkbox" name="lang">English 
+<input type="checkbox" name="lang">Telugu
+<input type="checkbox" name="lang">Hindi
+<input type="checkbox" name="lang">Tamil
+<input type="checkbox" name="lang">Malayalam
+</p>
+
+<p>address<br>
+<textarea name="address" rows="10" cols="20"></textarea></p>
+
+<input type="submit" value="submit"> 
+<input type="reset" value="reset">
+</form>
+</body>
+</html>

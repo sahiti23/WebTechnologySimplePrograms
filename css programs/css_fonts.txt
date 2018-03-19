@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>fonts,color,size introduction</title>
+</head>
+
+<body>
+<h1 style="font-family:COmic Sans Ms;">heading part</h1>
+
+<p style="font-family:arial;color:red;font-size:20px;">A paragraph</p>
+
+</body>
+</html>

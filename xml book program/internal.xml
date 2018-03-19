@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1?>
+<!DOCTYPE student[
+	<!ELEMENT name(#PCDATA)>
+	<!ELEMENT dept(#PCDATA)>
+	]><student>
+		<name>sahiti</name>
+		<dept>it</dept>
+	</student>
